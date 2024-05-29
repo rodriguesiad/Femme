@@ -10,11 +10,14 @@ class Pessoa extends DefaultEntity {
     - cpf: string
     - dataNascimento: date
     - sexo: string
+    - paisNascimento: string
+    - cidadeNasciemtno: string
 }
 
 class Usuario extends DefaultEntity {
     - email: string
     - senha: string
+    - status: bool
 }
 
 enum Perfil {
@@ -63,7 +66,7 @@ class RelatorioDiario extends DefaultEntity {
 abstract class Periodo extends DefaultEntity {
     - dataInicio: date
     - dataFim: date
-    - ativo: bool
+    - status: bool
 }
 
 class PeriodoFertil extends Periodo {
@@ -78,6 +81,8 @@ class PeriodoMenstrual extends Periodo {
 class CicloMenstrual extends DefaultEntity {
     - mediaDiasMenstruacao: int
     - mediaDiasCiclo: int
+    - dataFimUltimaMenstruacao: date
+    - status: bool
 }
 
 Usuario "1" -down-> "*" Perfil
